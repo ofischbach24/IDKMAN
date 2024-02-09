@@ -1,6 +1,6 @@
 import subprocess
 from colorama import Fore
-from motorlib import *
+from motorlib import board,motor
 import RPi.GPIO as GPIO
 from evdev import InputDevice, categorize, ecodes
 
