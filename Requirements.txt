@@ -1,2 +1,4 @@
 evdev==1.4.0
 RPi.GPIO==0.7.0
+colorama==0.4.4
+inputs==0.5.1
