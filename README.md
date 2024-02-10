@@ -4,3 +4,4 @@ next run with command ./setup.sh
 to run app2.py first set to b e executable chmod +x app2.py
 run ./app2.py
 
+run ls /dev/input/ this will find what you  need to replace eventX with
