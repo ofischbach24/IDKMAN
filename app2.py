@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import subprocess
 from colorama import Fore
 from motorlib import board,motor
