@@ -1,6 +1,6 @@
 First clone the repository
 cd Desktop
-git clone https://github.com/ofischbach24/IDKMAN.git
+git clone https://github.com/ofischbach24/Robocup24.git
 
 run the  setup.sh file set to be executable with chmod +x setup.sh
 next run with command ./setup.sh
