@@ -56,7 +56,7 @@ class motor:
                 print ("encoder needs 2 pins")
                 return
             else:
-                self.encdoder = Encoder(encoder[0],encoder[1])
+                self.encoder = Encoder(encoder[0],encoder[1])
         
          ##This is the encoder object that is attatched to the motor
         objectlist.append(self) ##This adds the motor to the list of motor objects
