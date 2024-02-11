@@ -1,7 +1,10 @@
 #!/bin/bash
 
 # Install required Python packages
-pip install pimoroni-ioexpander RPi.GPIO inputs colorama
+pip3 install pimoroni-ioexpander 
+pip3 install RPi.GPIO 
+pip3 install inputs 
+pip3 install colorama
 
 #install required updates
 sudo apt-get update
