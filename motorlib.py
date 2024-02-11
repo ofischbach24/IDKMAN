@@ -81,7 +81,7 @@ class motor:
             print ("Speed out of range: must be between -100 and 100")
             return
         
-        if self.board == "pi":
+        if self.board.get_type() == "pi": "pi":
             
             ## the speed must be scaled becuase the pwm period is different for the expanders, this normalizes the speed for all inputs
             if speed == 0:
