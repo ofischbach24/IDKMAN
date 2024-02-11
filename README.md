@@ -2,10 +2,14 @@ First clone the repository
 cd Desktop
 git clone https://github.com/ofischbach24/Robocup24.git
 
+on pi 
+
 run the  setup.sh file set to be executable with chmod +x setup.sh
 next run with command ./setup.sh
 
 run ls /dev/input/  this will find what you  need to replace eventX in app2.py with
+
+run robot_server.py on the pi then run robot_client.py on your computer
 
 to run app2.py first set to be executable chmod +x app2.py
 run ./app2.py
