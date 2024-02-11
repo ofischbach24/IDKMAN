@@ -1,13 +1,24 @@
 #!/usr/bin/env python3
+import subprocess  # Added missing import
 from colorama import Fore
 import RPi.GPIO as GPIO
 from motorlib import board, motor
 from evdev import InputDevice, ecodes
 from inputs import get_gamepad
+import threading
 
 # Setup GPIO
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
+
+# Function to get information about connected game controllers using xinput
+def get_gamepad_info():
+    try:
+        result = subprocess.run(['xinput', 'list'], capture_output=True, text=True, check=True)
+        return result.stdout
+    except subprocess.CalledProcessError as e:
+        print(f"Error running xinput: {e}")
+        return None
 
 # Setup Motors
 LEFT_TREAD_PINS = [2, 12]
@@ -24,6 +35,23 @@ right_tread_pwm = GPIO.PWM(RIGHT_TREAD_PINS[0], 100)
 # Setup Power Variables
 powerDrive = 1
 
+# Example usage of get_gamepad_info
+gamepad_info = get_gamepad_info()
+if gamepad_info:
+    print("Gamepad Information:")
+    print(gamepad_info)
+
+# Function to continuously read and print gamepad events
+def gamepad_event_loop():
+    while True:
+        events = get_gamepad()
+        for event in events:
+            print(f"Event: {event.ev_type}-{event.ev_code}, Value: {event.ev_value}")
+
+# Start the gamepad event loop in a separate thread
+gamepad_thread = threading.Thread(target=gamepad_event_loop)
+gamepad_thread.start()
+
 # Define deadzone threshold
 DEADZONE_THRESHOLD = 0.2
 
@@ -34,6 +62,7 @@ def motor_control(motor_pwm, joystick_value):
     motor_pwm.start(int(joystick_value * 100 * powerDrive))
 
 def shutdown():
+    stopall()
     GPIO.cleanup()
     print(Fore.RED + 'Shutdown' + Fore.RESET)
 
@@ -63,7 +92,8 @@ if __name__ == '__main__':
         shutdown()
 
 # Path to the event file for the gamepad, adjust as needed
-gamepad_path = "/dev/input/eventX"  # Replace eventX with the correct event file
+# Replace "eventX" with the correct event file path for your gamepad
+gamepad_path = "/dev/input/eventX"
 gamepad = InputDevice(gamepad_path)
 
 try:
@@ -79,7 +109,7 @@ try:
                 joystick2_value = apply_deadzone(joystick2_value, DEADZONE_THRESHOLD)
                 motor_control(right_tread_pwm, joystick2_value)
 
-        elif event.type == ecodes.EV_KEY and event.code == ecodes.BTN_START:
+        elif event.type == ecodes.EV_KEY and event.code == ecodes.BTN_START and event.ev_value == 1:
             shutdown_value = event.value
             shutdown()
 
