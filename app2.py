@@ -52,7 +52,7 @@ right_tread_pwm = GPIO.PWM(RIGHT_TREAD_PINS[0], 100)
 
 
 # Setup Power Variables
-power_Drive = 1
+powerDrive = 1
 FLIPPER_POWER = 1
 REAR_FLIPPER_POWER = 1
 
