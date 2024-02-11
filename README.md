@@ -1,5 +1,3 @@
-##Setup
-
 First clone the repository
 cd Desktop
 git clone https://github.com/ofischbach24/IDKMAN.git
