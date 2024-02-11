@@ -1,7 +1,13 @@
 #!/bin/bash
 
 # Install required Python packages
-pip install pimoroni-ioexpander RPi.GPIO
+pip install pimoroni-ioexpander RPi.GPIO inputs colorama
+
+#install required updates
+sudo apt-get update
+sudo apt-get install -y python3-pip
+sudo apt-get install -y python3-evdev
+sudo apt-get install -y python3-smbus
 
 # Install xinput tool
 sudo apt-get install xinput
