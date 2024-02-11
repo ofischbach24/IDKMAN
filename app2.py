@@ -150,18 +150,18 @@ if __name__ == '__main__':
 
                 # Rear Flipper Commands
                 else:
-                if event.ev_type == 'Key' and event.ev_code == LEFT_REAR_FLIPPER_DOWN_BUTTON and event.ev_value == 1:
-                    flipper_control(left_flipper_pwm, 1)  # Move left rear flipper down
+                    if event.ev_type == 'Key' and event.ev_code == LEFT_REAR_FLIPPER_DOWN_BUTTON and event.ev_value == 1:
+                        flipper_control(left_flipper_pwm, 1)  # Move left rear flipper down
 
-                elif event.ev_type == 'Key' and event.ev_code == LEFT_REAR_FLIPPER_UP_BUTTON and event.ev_value == 1:
-                    flipper_control(left_flipper_pwm, -1)  # Move left rear flipper up
+                    elif event.ev_type == 'Key' and event.ev_code == LEFT_REAR_FLIPPER_UP_BUTTON and event.ev_value == 1:
+                        flipper_control(left_flipper_pwm, -1)  # Move left rear flipper up
 
-                elif event.ev_type == 'Key' and event.ev_code == RIGHT_REAR_FLIPPER_DOWN_BUTTON and event.ev_value == 1:
-                    flipper_control(right_flipper_pwm, 1)  # Move right rear flipper down
+                    elif event.ev_type == 'Key' and event.ev_code == RIGHT_REAR_FLIPPER_DOWN_BUTTON and event.ev_value == 1:
+                        flipper_control(right_flipper_pwm, 1)  # Move right rear flipper down
 
-                elif event.ev_type == 'Key' and event.ev_code == RIGHT_REAR_FLIPPER_UP_BUTTON and event.ev_value == 1:
-                    flipper_control(right_flipper_pwm, -1)  # Move right rear flipper up
-                    
+                    elif event.ev_type == 'Key' and event.ev_code == RIGHT_REAR_FLIPPER_UP_BUTTON and event.ev_value == 1:
+                        flipper_control(right_flipper_pwm, -1)  # Move right rear flipper up
+
 except KeyboardInterrupt:
     shutdown()
 
