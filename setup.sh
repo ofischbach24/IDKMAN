@@ -5,6 +5,7 @@ pip3 install pimoroni-ioexpander
 pip3 install RPi.GPIO 
 pip3 install inputs 
 pip3 install colorama
+pip3 install socket
 
 #install required updates
 sudo apt-get update
