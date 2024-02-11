@@ -109,7 +109,7 @@ try:
                 joystick2_value = apply_deadzone(joystick2_value, DEADZONE_THRESHOLD)
                 motor_control(right_tread_pwm, joystick2_value)
 
-        elif event.type == ecodes.EV_KEY and event.code == ecodes.BTN_START and event.ev_value == 1:
+        elif event.type == ecodes.EV_KEY and event.code == ecodes.BTN_MODE and event.ev_value == 1:
             shutdown_value = event.value
             shutdown()
 
