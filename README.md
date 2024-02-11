@@ -1,5 +1,9 @@
-to run the  setup.sh file set to be executable with 
-chmod +x setup.sh next run with command ./setup.sh
+First clone the repository
+cd Desktop
+git clone https://github.com/ofischbach24/IDKMAN
+
+run the  setup.sh file set to be executable with chmod +x setup.sh
+next run with command ./setup.sh
 
 run ls /dev/input/  this will find what you  need to replace eventX in app2.py with
 
