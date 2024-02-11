@@ -81,7 +81,6 @@ LEFT_REAR_FLIPPER_DOWN_BUTTON = 'BTN_TL2'
 LEFT_REAR_FLIPPER_UP_BUTTON = 'BTN_ZL2'
 RIGHT_REAR_FLIPPER_DOWN_BUTTON = 'BTN_TR2'
 RIGHT_REAR_FLIPPER_UP_BUTTON = 'BTN_ZR2'
-
 # Mode flags
 FRONT_FLIPPER_MODE = True  # Start in the front flipper mode
 TRIANGLE_BUTTON = 'BTN_NORTH'  # Replace with the correct button code for the triangle button
