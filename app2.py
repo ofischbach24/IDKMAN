@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-import subprocess  # Added missing import
+import subprocess
 from colorama import Fore
 import RPi.GPIO as GPIO
 from motorlib import board, motor
 from evdev import InputDevice, ecodes
-from inputs import get_gamepad
+from inputs import get_gamepad  
 import threading
 
 # Setup GPIO
