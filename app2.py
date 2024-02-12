@@ -161,8 +161,8 @@ if __name__ == '__main__':
                     elif event.ev_type == 'Key' and event.ev_code == RIGHT_REAR_FLIPPER_UP_BUTTON and event.ev_value == 1:
                         flipper_control(right_flipper_pwm, -1)  # Move right rear flipper up
 
-except KeyboardInterrupt:
-    shutdown()
+    except KeyboardInterrupt:
+        shutdown()
 
 # Path to the event file for the gamepad, adjust as needed
 # Replace "eventX" with the correct event file path for your gamepad
