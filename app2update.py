@@ -112,6 +112,7 @@ def shutdown():
 if __name__ == '__main__':
     print(Fore.RED + 'Server started' + Fore.RESET)
     try:
+        toggle_pressed = False  # New variable to track the toggle button state
         while True:
             events = get_gamepad()
             for event in events:
@@ -120,9 +121,13 @@ if __name__ == '__main__':
                     triangle_state = event.ev_value
 
                     # Toggle between front flipper mode and rear flipper mode when the button is pressed
-                    if triangle_state == 1 and prev_triangle_state == 0:
+                    if triangle_state == 1 and prev_triangle_state == 0 and not toggle_pressed:
                         FRONT_FLIPPER_MODE = not FRONT_FLIPPER_MODE
                         print("Switched to", "Front Flipper Mode" if FRONT_FLIPPER_MODE else "Rear Flipper Mode")
+                        toggle_pressed = True
+
+                    elif triangle_state == 0:
+                        toggle_pressed = False
 
                     prev_triangle_state = triangle_state
 
